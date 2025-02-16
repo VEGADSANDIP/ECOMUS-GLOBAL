@@ -5,7 +5,7 @@ function Logo() {
     return (
         <>
             <div>
-                <a href="">
+                <a href="{}">
                 <img src="/img/logo.svg" alt="" />
                 </a>
             </div>

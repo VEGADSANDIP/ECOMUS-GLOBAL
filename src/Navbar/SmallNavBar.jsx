@@ -1,57 +1,69 @@
-import React, { useState, useReducer } from "react";
-import SmallBtn from "./SmallBtn";
+import React, { useState, useReducer, act } from "react";
 import SmallLink from "./SmallLink";
 import LinkText from "./LinkText";
 
 const initializeState = {
-    smallMenubar: false
-}
+    smallMenubar: false,
+    smallHome: false,
+    smallShop: false,
+    smallProducts: false,
+    smallBlog: false,
+};
 
 function reducer(state, action) {
-    console.log(action.type, "enter the reducer")
-
+    console.log(state, "\n", action, "\n", action.type, "\n", initializeState);
     switch (action.type) {
-        case 'Toggle_Menubar':
-            return { smallMenubar: !state.smallMenubar };
+        case "Toggle_Menubar":
+            return { ...state, smallMenubar: !state.smallMenubar };
 
-        case 'Toggle_Home':
-            return{smallHome: !state.smallHome }
+        case "Toggle_Home":
+            return { ...state, smallHome: !state.smallHome };
+
+        case "Toggle_Shop":
+            return { ...state, smallShop: !state.smallShop };
+
+        case "Toggle_Products":
+            return { ...state, smallProducts: !state.smallProducts };
+
+        case "Toggle_smallBlog":
+            return { ...state, smallBlog: !state.smallBlog };
 
         default:
             break;
     }
 }
 
-
 function SmallNavBar() {
-
     const [state, dispatch] = useReducer(reducer, initializeState);
-    // const [smallHome, SetSmallHome] = useState(false);
-    const [smallShop, SetSmallShop] = useState(false);
-    const [smallProducts, SetSmallProducts] = useState(false);
     const [smallBlog, SetSmallBlog] = useState(false);
-
-    const ToggleState = (isSetter, SetIsSetter) => {
-        SetIsSetter(!isSetter);
-    }
 
     return (
         <>
             <div>
-                <button onClick={() => dispatch({ type: 'Toggle_Menubar' })} >
+                <button onClick={() => dispatch({ type: "Toggle_Menubar" })}>
                     <img src="/img/ThreeLine.svg" alt="" />
                 </button>
                 {state.smallMenubar && (
                     <div className="fixed inset-0 flex items-start justify-start bg-black bg-opacity-25 w-full h-full">
                         <div className="bg-white  p-10  rounded-md shadow-lg w-1/2 h-full">
-
                             <div className="text-start h-full">
-                                <button className="h-5" onClick={() => dispatch({ type: 'Toggle_Menubar' })} >
+                                <button
+                                    className="h-5"
+                                    onClick={() => dispatch({ type: "Toggle_Menubar" })}
+                                >
                                     <img className="w-8" src="/img/close.svg" alt="" />
                                 </button>
                                 <div className="h-[95%] my-auto overflow-scroll py-10">
                                     <div className="border border-1 border-t-0 border-l-0 border-r-0 py-2">
-                                        <SmallBtn text="Home" onClick={() => dispatch({ type: 'Toggle_Home' })}></SmallBtn>
+                                        <div className="">
+                                            <button
+                                                className="flex justify-between items-center w-full text-lg"
+                                                onClick={() => dispatch({ type: "Toggle_Home" })}
+                                            >
+                                                Home
+                                                <img className="w-6" src="/img/add.svg" alt="" />
+                                            </button>
+                                        </div>
                                         {state.smallHome && (
                                             <div className="border border-t-0 border-r-0 border-b-0 ms-6">
                                                 <SmallLink SmallLink="Home Fashion 01"></SmallLink>
@@ -82,8 +94,16 @@ function SmallNavBar() {
                                     </div>
 
                                     <div className="border border-1 border-t-0 border-l-0 border-r-0 py-2">
-                                        <SmallBtn text="Shop" TogglePopup={() => ToggleState(smallShop, SetSmallShop)}></SmallBtn>
-                                        {smallShop && (
+                                        <div className="">
+                                            <button
+                                                className="flex justify-between items-center w-full text-lg"
+                                                onClick={() => dispatch({ type: "Toggle_Shop" })}
+                                            >
+                                                Shop
+                                                <img className="w-6" src="/img/add.svg" alt="" />
+                                            </button>
+                                        </div>{" "}
+                                        {state.smallShop && (
                                             <div className="border border-t-0 border-r-0 border-b-0 ms-6">
                                                 <SmallLink SmallLink="Home Fashion 01"></SmallLink>
                                                 <SmallLink SmallLink="Home Multi Brand"></SmallLink>
@@ -113,8 +133,18 @@ function SmallNavBar() {
                                     </div>
 
                                     <div className="border border-1 border-t-0 border-l-0 border-r-0 py-2">
-                                        <SmallBtn text="Products" TogglePopup={() => ToggleState(smallProducts, SetSmallProducts)}></SmallBtn>
-                                        {smallProducts && (
+                                        <div className="">
+                                            <button
+                                                className="flex justify-between items-center w-full text-lg"
+                                                onClick={() =>
+                                                    dispatch({type:'Toggle_Products'})
+                                                }
+                                            >
+                                                Products
+                                                <img className="w-6" src="/img/add.svg" alt="" />
+                                            </button>
+                                        </div>
+                                        {state.smallProducts && (
                                             <div className="border border-t-0 border-r-0 border-b-0 ms-6">
                                                 <SmallLink SmallLink="Home Fashion 01"></SmallLink>
                                                 <SmallLink SmallLink="Home Multi Brand"></SmallLink>
@@ -144,8 +174,16 @@ function SmallNavBar() {
                                     </div>
 
                                     <div className="border border-1 border-t-0 border-l-0 border-r-0 py-2">
-                                        <SmallBtn text="Blog" TogglePopup={() => ToggleState(smallBlog, SetSmallBlog)}></SmallBtn>
-                                        {smallBlog && (
+                                        <div className="">
+                                            <button
+                                                className="flex justify-between items-center w-full text-lg"
+                                                onClick={()=> dispatch({type:'Toggle_Blog'})}
+                                            >
+                                                Blog
+                                                <img className="w-6" src="/img/add.svg" alt="" />
+                                            </button>
+                                        </div>
+                                        {state.smallBlog && (
                                             <div className="border border-t-0 border-r-0 border-b-0 ms-6">
                                                 <SmallLink SmallLink="Home Fashion 01"></SmallLink>
                                                 <SmallLink SmallLink="Home Multi Brand"></SmallLink>
@@ -178,10 +216,9 @@ function SmallNavBar() {
                                         <LinkText linkText="Buy Now"></LinkText>
                                     </div>
 
-                                    <div >
+                                    <div>
                                         <div className="flex gap-5 w-fit h-fit">
-                                            <button
-                                                className="flex gap-3 border border-1 py-2 px-4 rounded-md text-lg hover:bg-black hover:text-white">
+                                            <button className="flex gap-3 border border-1 py-2 px-4 rounded-md text-lg hover:bg-black hover:text-white">
                                                 <img
                                                     src="/img/wishlist.svg"
                                                     alt=""
@@ -197,19 +234,32 @@ function SmallNavBar() {
 
                                         <div>
                                             <address className="">
-                                                <p className="my-2">Address: 1234 Fashion Street, Suite 567,New York, NY</p>
-                                                <p className="my-2">Email: <a className="font-semibold" href="mailto:info@fashionshop.com">info@fashionshop.com</a></p>
-                                                <p className="my-2">Phone: <a className="font-semibold" href="tel:(212)555-1234">(212)555-1234</a></p>
+                                                <p className="my-2">
+                                                    Address: 1234 Fashion Street, Suite 567,New York, NY
+                                                </p>
+                                                <p className="my-2">
+                                                    Email:{" "}
+                                                    <a
+                                                        className="font-semibold"
+                                                        href="mailto:info@fashionshop.com"
+                                                    >
+                                                        info@fashionshop.com
+                                                    </a>
+                                                </p>
+                                                <p className="my-2">
+                                                    Phone:{" "}
+                                                    <a className="font-semibold" href="tel:(212)555-1234">
+                                                        (212)555-1234
+                                                    </a>
+                                                </p>
                                             </address>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                )
-                }
+                )}
             </div>
         </>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import BestSellerContainer from "./BestSellerContainer";
-import LoadMore from "../LoadMore/LoadMore";
+// import LoadMore from "../LoadMore/LoadMore";
 
 
 
@@ -59,16 +59,6 @@ function BestSellerContent() {
                 ></BestSellerContainer>
             </div>
             <div className="pt-10 flex justify-center items-center">
-            <LoadMore
-                
-                btnName="Load More"
-                bgColor="bg-black"
-                textColor="text-white"
-                btnPadding="p-4"
-                rounded = "rounded-md"
-
-            >
-            </LoadMore>
             </div>
         </>
     )

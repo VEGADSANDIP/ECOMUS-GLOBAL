@@ -27,6 +27,7 @@ function NavbarContent(props) {
                 <div>
                     <div>
                         <Navbar pass={() => setIsHome(true)} isHome={isHome} name="Home"></Navbar>
+
                     </div>
                     {isHome && (
                         <div className="fixed inset-0 flex items-end justify-center bg-black bg-opacity-25 ">

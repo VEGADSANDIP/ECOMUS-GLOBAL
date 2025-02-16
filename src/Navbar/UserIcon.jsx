@@ -13,7 +13,7 @@ export default function UserIcon() {
 
     return (
         <>
-            <div className="flex gap-2">
+            <div className="flex gap-5">
                 <div>
                     <button onClick={() => setIsSearch(true)}>
                         <img src="/img/search.svg" alt="Search" />
@@ -93,7 +93,7 @@ export default function UserIcon() {
                 </div>
 
                 <div className="hidden lg:block">
-                    <a href="">
+                    <a href="{}">
                         <img src="/img/wishlist.svg" alt="" />
                     </a>
                 </div>
