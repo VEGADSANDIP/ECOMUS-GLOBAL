@@ -1,0 +1,33 @@
+
+#animated-text-strip {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    overflow: hidden;
+}
+
+#animated-text-strip .marquee {
+    white-space: nowrap;
+    animation: marquee 5s linear infinite;
+    max-width: none;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+#animated-text-strip {
+    background: #FCFFB2;
+    padding: 1rem 0;
+}
+
+.marquee {
+    font-size: 1.5rem;
+    color: black;
+}

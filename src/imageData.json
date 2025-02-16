@@ -1,0 +1,46 @@
+[
+    {
+        "id":"logo",
+        "path":"/img/logo.svg",
+        "alt": "website logo",
+        "category": "logo"
+    },
+    {
+        "id":"down-arrow",
+        "path":"/img/arrow_down.svg",
+        "alt": "down arrow",
+        "category": "arrow"
+    },
+    {
+        "id":"login",
+        "path":"/img/login.svg",
+        "alt": "login",
+        "category": "user relative"
+    }
+    ,
+    {
+        "id":"search",
+        "path":"/img/search.svg",
+        "alt": "search",
+        "category": "user relative"
+    },
+    {
+        "id":"wishlist",
+        "path":"/img/wishlist.svg",
+        "alt": "wishlist",
+        "category": "user relative"
+    },
+    {
+        "id":"cart",
+        "path":"/img/cart.svg",
+        "alt": "cart",
+        "category": "user relative"
+    },
+    {
+        "id":"black-1",
+        "path":"/img/black-1.jpg",
+        "alt": "black-1",
+        "category": "black clothes"
+    }
+
+]

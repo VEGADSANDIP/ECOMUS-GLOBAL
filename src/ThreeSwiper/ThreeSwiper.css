@@ -1,0 +1,43 @@
+#Threeswiper {
+    height: 100%;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+.ThreeSlider{
+    position: relative;
+}
+.swiper-slide {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: border-box;
+
+}
+.three1{
+    height: 100vh;
+    background-image: url(/public/img/fashion-slideshow-01.jpg);
+}
+.three2{
+    height: 100vh;
+    background-image: url(/public/img/fashion-slideshow-02.jpg);
+
+}
+.three3{
+    height: 100vh;
+    background-image: url(/public/img/fashion-slideshow-03.jpg);
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
